@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
              * You will need to add more code here that will also add the users email to the list
              * titled "users who've signed up"
              */
+            const lis = document.getElementById("signUpL");
+            const em = document.createElement("h5");
+            em.textContent = userEmail;
+            lis.appendChild(em);
         } else {
             alert('No email provided. Please try again if you wish to be notified.');
         }
@@ -26,12 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
     /*
      * Add an event listener for the iOS Button
      */
-
-
+    document.getElementById("ios").addEventListener("click", function(){
+        handleJoinClick('iOS');
+    });
     /*
      * Add an event listener for the Android Button
      */
-
+    document.getElementById("android").addEventListener("click", function(){
+        handleJoinClick('Android');
+    });
 
     // Below here you can add code for what happens when the user clicks "Sign Up"
     // The general flow you should follow is the following:
@@ -44,6 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
     //  Help 1: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event
     //  Help 2: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
     //  Help 3: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+    function subButtom(){
+        const cont = document.getElementById("emai");
+        if(cont.value){
+            const lis = document.getElementById("signUpL");
+        const em = document.createElement("h5");
+        em.textContent = cont.value;
+        lis.appendChild(em);
+        cont.value = "";
+        }else{
+            alert("No email provided. Please try again if you wish to be notified.")
+        }
+        
+    }
+    document.getElementById("sign").addEventListener("click", function(){
+        subButtom();
+    });
 });
 
 
